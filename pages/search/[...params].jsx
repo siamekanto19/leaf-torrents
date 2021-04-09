@@ -5,7 +5,7 @@ import Torrent from '../../components/Torrent'
 export const getServerSideProps = async (context) => {
   const keyword = context.query.params[0]
   const page = context.query.page
-  const url = `${process.env.NEXT_PUBLIC_HOST}/api/search/${keyword}/${page}`
+  const url = `https://leaf-torrents.vercel.app/api/search/${keyword}/${page}`
   const res = await fetch(url).then((res) => res.json())
 
   return {
