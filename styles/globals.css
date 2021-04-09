@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font Faces */
+
+@font-face {
+  font-family: 'LemonMilkBold';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../public/font/LemonMilkBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'LemonMilkMedium';
+  font-style: normal;
+  src: url('../public/font/LemonMilkMedium.woff') format('woff');
+}
+
+/* Custom Styles */
+
+body input {
+  @apply focus:outline-none;
+}
+
+.home-section {
+  background-image: url('../public/img/ocean.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text-lemon-bold {
+  font-family: 'LemonMilkBold';
+}
+
+.text-lemon-md {
+  font-family: 'LemonMilkMedium';
+}
