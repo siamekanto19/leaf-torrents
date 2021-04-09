@@ -14,7 +14,7 @@ export default async (req, res) => {
   }
 
   // Make the Search
-  const results = await Torrent.search(query)
+  let results = await Torrent.search(query)
 
   // Paginate
   const pagination = {
@@ -35,8 +35,9 @@ export default async (req, res) => {
     pagination.prevPage = false
   }
 
-  const paginatedResults = results.slice(page * 15, page * 15 + 15)
+  results = results.slice().sort((a, b) => b.seeders - a.seeders)
 
+  const paginatedResults = results.slice(page * 15, page * 15 + 15)
   // Response
   res.status(200).json({
     pagination: pagination,

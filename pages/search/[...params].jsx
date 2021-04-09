@@ -19,7 +19,6 @@ export default function params({ res }) {
 
   return (
     <div className="mt-28">
-      {console.log(res.torrents)}
       <div className="w-11/12 md:w-3/4 lg:w-2/3 2xl:w-1/2 mx-auto flex flex-col space-y-7">
         {res.torrents.map((torrent, index) => {
           return <Torrent key={index} torrent={torrent} />
