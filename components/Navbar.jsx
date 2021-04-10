@@ -58,15 +58,27 @@ export default function Navbar() {
             />
           </Link>
           <div
-            className={`absolute left-4 cursor-pointer transform transition-transform duration-200 ${
-              navExpanded ? 'rotate-90' : ''
-            }`}
+            className="absolute left-4 cursor-pointer"
             onClick={() => {
               setNavExpanded(!navExpanded)
             }}
           >
-            <span className="h-1 w-8 block bg-white rounded"></span>
-            <span className="h-1 w-8 block bg-white rounded mt-2"></span>
+            <span
+              className={`h-1 w-8 block bg-white rounded ${
+                navExpanded ? 'hidden' : ''
+              }`}
+            ></span>
+            <span
+              className={`h-1 w-8 block bg-white rounded mt-2 ${
+                navExpanded ? 'hidden' : ''
+              }`}
+            ></span>
+            <span
+              className={`cross-one ${navExpanded ? 'block' : 'hidden'}`}
+            ></span>
+            <span
+              className={`cross-two ${navExpanded ? 'block' : 'hidden'}`}
+            ></span>
           </div>
         </div>
       </nav>

@@ -15,6 +15,6 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "tailwindcss": "^2.1.1",
-    "torrent-indexer": "^1.2.1"
+    "torrent-search-api": "^2.1.3"
   }
 }

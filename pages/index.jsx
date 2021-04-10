@@ -20,7 +20,7 @@ export default function Home() {
     const keyword = query.split(' ').join('+').trim()
     router.push(`/search/${keyword}?page=1`)
   }
-
+  // Search on Enter Press
   const handleKeyup = (e) => {
     if (e.keyCode == 13) {
       const keyword = query.split(' ').join('+').trim()
@@ -30,7 +30,18 @@ export default function Home() {
 
   return (
     <div className="min-h-screen w-screen flex flex-col justify-center items-center home-section">
+      {/* Render Head Contents */}
+      <Head>
+        <title>Leaf Torrents</title>
+        <meta
+          name="description"
+          content="Leaf Torrents is a Powerful Torrent Indexer that lets you search and download Torrents from most of the popular Torrent Websites and combine them in a single place."
+        />
+        <meta name="theme-color" content="#1f2937" />
+        <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+      </Head>
       <div className="w-10/12 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
+        {/* Logo and Hero Text */}
         <div className="flex flex-col lg:flex-row items-center justify-center mx-auto">
           <img
             src="icons/leaf.svg"
@@ -42,6 +53,7 @@ export default function Home() {
           </h1>
         </div>
         <div className="w-full flex items-center relative">
+          {/* Input Box to make the search */}
           <input
             className="mt-10 lg:mt-14 xl:mt-16 md:text-lg xl:text-xl text-lemon-bold px-4 h-14 lg:h-16 bg-white w-full text-gray-800 shadow-md"
             type="text"
@@ -50,6 +62,7 @@ export default function Home() {
             placeholder="Enter Keyword"
             id="keywordInput"
           />
+          {/* Search Button */}
           <button
             onClick={handleClick}
             className="absolute bottom-0 right-0 bg-green-600 w-20 lg:w-36 xl:w-40 2xl:w-44 shadow-md text-lg text-white text-lemon-bold h-14 lg:h-16 hover:bg-green-700 flex justify-center items-center"

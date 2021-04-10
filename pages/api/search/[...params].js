@@ -1,14 +1,15 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import TorrentIndexer from 'torrent-indexer'
-const Torrent = new TorrentIndexer()
+// Import Torrent Search Library
+import Torrent from 'torrent-search-api'
+// Enable all of the Public Torrent Providers where the search will be performed
+Torrent.enablePublicProviders()
 
 export default async (req, res) => {
-  // Get The Queries
+  // Get The Queries from client
   const { params } = req.query
   const query = params[0]
   const page = parseInt(params[1])
 
-  // Pagination Logics
+  // Set the page query to 1 if it doesn't come from client
   if (!page) {
     page = 1
   }
@@ -19,7 +20,9 @@ export default async (req, res) => {
   // Paginate
   const pagination = {
     totalPages: Math.floor(results.length / 15),
+    results: results.length,
   }
+  // Pagination Logics
   if (pagination.totalPages > 1 && page == pagination.totalPages) {
     pagination.nextPage = false
     pagination.prevPage = page - 1
@@ -34,11 +37,9 @@ export default async (req, res) => {
   if (pagination.prevPage == 0) {
     pagination.prevPage = false
   }
-
-  results = results.slice().sort((a, b) => b.seeders - a.seeders)
-
+  // Generate the paginated result for torrents
   const paginatedResults = results.slice(page * 15, page * 15 + 15)
-  // Response
+  // Send the torrents along with pagination to the client as Response
   res.status(200).json({
     pagination: pagination,
     torrents: paginatedResults,
