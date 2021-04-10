@@ -1,5 +1,5 @@
 // Import Torrent Search Library
-import Torrent from 'torrent-search-api'
+const Torrent = require('torrent-search-api')
 // Enable all of the Public Torrent Providers where the search will be performed
 Torrent.enablePublicProviders()
 

@@ -7,7 +7,7 @@ export const getServerSideProps = async (context) => {
   const keyword = context.query.params[0]
   const page = context.query.page
   // Make the API Request to fetch torrents
-  const host = 'https://leaftorrents.netlify.app'
+  const host = 'https://leaftorrents.vercel.app'
   const url = `${host}/api/search/${keyword}/${page}`
   const res = await fetch(url).then((res) => res.json())
   // Return the fetched torrents to the template
