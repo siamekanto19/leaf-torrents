@@ -20,7 +20,7 @@ export default function Navbar() {
           <ul className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 h-full mx-auto flex items-center justify-around">
             <Link href="/">
               <li className="cursor-pointer transform hover:scale-125 transition-transform duration-100">
-                <img src="icons/leaf.svg" className="h-9" alt="" />
+                <img src="/icons/leaf.svg" className="h-9" alt="" />
               </li>
             </Link>
             <Link href="/">
@@ -52,7 +52,7 @@ export default function Navbar() {
           <Link href="/">
             <img
               onClick={() => setNavExpanded(false)}
-              src="icons/leaf.svg"
+              src="/icons/leaf.svg"
               className="h-9 cursor-pointer"
               alt=""
             />

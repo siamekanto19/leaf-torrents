@@ -52,23 +52,31 @@ export default function Home() {
             Leaf Torrents
           </h1>
         </div>
-        <div className="w-full flex items-center relative">
+        <div className="w-full flex flex-col justify-center relative">
           {/* Input Box to make the search */}
           <input
-            className="mt-10 lg:mt-14 xl:mt-16 md:text-lg xl:text-xl text-lemon-bold px-4 h-14 lg:h-16 bg-white w-full text-gray-800 shadow-md"
+            className="mt-10 lg:mt-14 xl:mt-16 md:text-lg rounded lg:rounded-l text-center xl:text-xl text-lemon-bold px-4 h-14 lg:h-16 bg-white w-full text-gray-800 shadow-md"
             type="text"
             onChange={(e) => setQuery(e.target.value)}
             onKeyUp={handleKeyup}
             placeholder="Enter Keyword"
             id="keywordInput"
           />
-          {/* Search Button */}
+          {/* Search Button for Desktop */}
           <button
             onClick={handleClick}
-            className="absolute bottom-0 right-0 bg-green-600 w-20 lg:w-36 xl:w-40 2xl:w-44 shadow-md text-lg text-white text-lemon-bold h-14 lg:h-16 hover:bg-green-700 flex justify-center items-center"
+            className="hidden lg:flex absolute rounded-r bottom-0 right-0 bg-green-600 w-20 lg:w-36 xl:w-40 2xl:w-44 shadow-md text-lg text-white text-lemon-bold h-14 lg:h-16 hover:bg-green-700 justify-center items-center"
           >
-            <img src="icons/search.svg" className="h-5 lg:h-7 lg:mr-3" alt="" />
-            <span className="hidden lg:block">Search</span>
+            <img src="icons/search.svg" className="h-7 mr-3" alt="" />
+            <span>Search</span>
+          </button>
+          {/* Search Button for Mobile */}
+          <button
+            onClick={handleClick}
+            className="bg-green-600 w-1/2 mx-auto rounded shadow-md mt-6 lg:hidden text-lg text-lemon-bold text-white h-14 hover:bg-green-700 flex justify-center items-center"
+          >
+            <img src="icons/search.svg" className="h-5 mr-3" alt="" />
+            <span>Search</span>
           </button>
         </div>
       </div>
