@@ -8,7 +8,7 @@ export const getServerSideProps = async (context) => {
   const keyword = context.query.params[0]
   const page = context.query.page
   // Make the API Request to fetch torrents
-  const host = 'https://leaftorrents.vercel.app'
+  const host = `${process.env.HOST_URL}`
   const url = `${host}/api/search/${keyword}/${page}`
   const res = await fetch(url).then((res) => res.json())
   // Redirect to 404 page if no torrent is found
@@ -41,8 +41,7 @@ export default function params({ res }) {
   return (
     <div className="mt-24">
       <Head>
-        <meta name="theme-color" content="#1f2937" />
-        <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+        <title>Search Results</title>
       </Head>
       {/* Show the Total number of torrents and pages. Also show which page the user is on currently */}
       {(res.pagination.nextPage || res.pagination.prevPage) && (
