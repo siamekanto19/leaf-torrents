@@ -8,7 +8,7 @@ export const getServerSideProps = async (context) => {
   const keyword = context.query.params[0]
   const page = context.query.page
   // Make the API Request to fetch torrents
-  const host = `https://leaftorrents-7sfgw.ondigitalocean.app`
+  const host = process.env.NEXT_PUBLIC_HOST
   const url = `${host}/api/search/${keyword}/${page}`
   const res = await fetch(url).then((res) => res.json())
   // Redirect to 404 page if no torrent is found
